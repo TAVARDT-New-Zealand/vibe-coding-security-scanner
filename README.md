@@ -9,7 +9,7 @@ Open-source security scanner auditing live applications built with vibe coding t
 
 ## Interactive Web Application
 
-Access the live online tool and evaluate your pipeline architecture in real-time:
+Access the live online tool and evaluate in real-time:
 
 - [https://tavardt-new-zealand.github.io/vibe-coding-security-scanner/](https://tavardt-new-zealand.github.io/vibe-coding-security-scanner/)
 
