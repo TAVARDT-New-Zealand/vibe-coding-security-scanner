@@ -61,3 +61,7 @@ Defensive architecture and cybersecurity controls aligned with the NZISM, Privac
 * **Tools:** [Central de Ferramentas](https://tools.tavardt.com/nz/)
 
 &copy; 2026 TAVARDT. All rights reserved.
+
+***
+
+© 2026 TAVARDT. All rights reserved.
