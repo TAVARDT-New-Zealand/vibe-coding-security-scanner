@@ -54,11 +54,11 @@ Defensive architecture and cybersecurity controls aligned with the NZISM, Privac
 
 ***
 
-## Official Links & Resources
+## Useful Links
 
-* **Live Hub:** [https://tavardt-new-zealand.github.io/vibe-coding-security-scanner/](https://tavardt-new-zealand.github.io/vibe-coding-security-scanner/)
-* **TAVARDT Portal:** [Institutional Portal](https://ag.tavardt.com/nz/)
-* **Tools:** [Tools Hub](https://tools.tavardt.com/nz/)
+* **Corporate Portal:** https://ag.tavardt.com/nz/
+* **Diagnostic Suite:** https://tools.tavardt.com/nz/
+* **Technical Contact:** https://ag.tavardt.com/nz/contact/
 
 ***
 
