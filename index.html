@@ -27,7 +27,7 @@
         "offers": {
           "@type": "Offer",
           "price": "0.00",
-          "priceCurrency": "NZD"
+          "priceCurrency": "CAD"
         },
         "author": {
           "@type": "Organization",
@@ -1155,14 +1155,14 @@ if __name__ == "__main__":
       if (sel) sel.value = tab;
       const box = document.getElementById('code-box');
       if (box && codeTemplates[tab]) {
-        box.innerText = codeTemplates[tab];
+        box.textContent = codeTemplates[tab];
       }
     }
 
     function copyCode() {
       const code = codeTemplates[activeTab];
       if (!code) return;
-      navigator.clipboard.writeText(code).then(() => {
+      navigator.clipboard.writeText(code).catch(() => {}).then(() => {
         const btn = document.getElementById('btn-copy-code');
         const orig = btn.innerText;
         btn.innerText = 'Copied!';
@@ -1172,7 +1172,7 @@ if __name__ == "__main__":
 
     function copyCliCommand() {
       const code = document.getElementById('cli-terminal-code').innerText;
-      navigator.clipboard.writeText(code).then(() => {
+      navigator.clipboard.writeText(code).catch(() => {}).then(() => {
         const btn = document.getElementById('btn-copy-cli');
         const orig = btn.innerText;
         btn.innerText = 'Copied!';
