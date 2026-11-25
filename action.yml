@@ -1,5 +1,5 @@
 name: 'TAVARDT Vibe Coding Security Scanner'
-description: 'Automated security auditor for AI-generated applications. Detects exposed sourcemaps, secrets, and perimeter flaws.'
+description: 'Automated security auditor for AI-generated applications. Detects leaked AI keys, exposed sourcemaps, and perimeter flaws.'
 author: 'TAVARDT New Zealand'
 
 branding:
@@ -10,6 +10,10 @@ inputs:
   target-url:
     description: 'Target application URL to audit (e.g. https://your-application.com)'
     required: true
+  strict:
+    description: 'Fail the workflow if any security finding is detected (true/false)'
+    required: false
+    default: 'false'
   timeout:
     description: 'HTTP connection timeout in seconds'
     required: false
@@ -25,4 +29,8 @@ runs:
         if ! command -v python3 &> /dev/null; then
           CMD="python"
         fi
-        $CMD "${{ github.action_path }}/audit_vibe_security.py" "${{ inputs.target-url }}" -t "${{ inputs.timeout }}"
+        EXTRA_FLAGS=""
+        if [ "${{ inputs.strict }}" = "true" ]; then
+          EXTRA_FLAGS="-s"
+        fi
+        $CMD "${{ github.action_path }}/audit_vibe_security.py" "${{ inputs.target-url }}" -t "${{ inputs.timeout }}" $EXTRA_FLAGS

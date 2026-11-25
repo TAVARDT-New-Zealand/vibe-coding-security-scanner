@@ -29,7 +29,7 @@ When developers instruct AI models to ship features quickly, resulting software 
 Autonomous code generators consistently introduce five distinct vulnerability classes into production environments:
 
 * **Production Sourcemap Exposure**: Bundling systems like Vite, Webpack, and Rollup frequently deploy `.js.map` files to public content delivery networks. These files permit full algorithmic deobfuscation of proprietary TypeScript sources, backend models, and hidden administrative routes.
-* **Exposed AI Provider Keys and Service Roles**: Secret keys prefixed with public variables are routinely baked directly into static client assets. Attackers extract OpenAI, Anthropic, Gemini, and Supabase service role keys to execute unmetered API calls.
+* **Exposed AI Provider Keys and Service Roles**: Secret keys prefixed with public variables are routinely baked directly into static client assets or inline SSR hydration payloads. Attackers extract OpenAI, Anthropic Claude, Google Gemini, xAI Grok, Groq, HuggingFace, Perplexity, GitHub Copilot tokens, and privileged Supabase service role JWTs to execute unmetered API calls.
 * **Absence of Row Level Security (RLS)**: Client-side SDKs frequently initialize database tables without enabling Row Level Security. Unauthenticated browser visitors can issue direct REST queries to extract customer records and sensitive transactional tables.
 * **Omission of Core Defensive Headers**: Default web server definitions omit essential security headers like Content-Security-Policy, Strict-Transport-Security, and X-Frame-Options. This leaves the host vulnerable to cross-site script injection, clickjacking overlays, and MIME sniffing exploits.
 * **Sensitive Environment File Routes**: Web servers frequently leave `.env` and `.env.local` files reachable over public HTTP endpoints. Automated scanners harvest database credentials, salts, and webhook tokens directly from root paths.
@@ -59,6 +59,7 @@ jobs:
         uses: TAVARDT-New-Zealand/vibe-coding-security-scanner@v1
         with:
           target-url: 'https://your-application.com'
+          strict: 'false'
 ```
 
 ### Local CLI Execution
@@ -67,6 +68,7 @@ You can also run the deterministic audit utility directly in terminal environmen
 
 ```bash
 python audit_vibe_security.py https://your-application.com
+python scanner.py https://your-application.com
 ```
 
 ***
